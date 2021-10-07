@@ -1,6 +1,10 @@
 const gulp = require('gulp')
+const fileinclude = require('gulp-file-include')
 
 module.exports = function html() {
-    return gulp.src('src/index.html').pipe(gulp.dest('build'))
+    return gulp.src('src/*.html')
+        .pipe(fileinclude({
+            prefix: '@@',
+            basepath: '@file'
+        })).pipe(gulp.dest('build'))
 }
-

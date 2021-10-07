@@ -22,7 +22,7 @@ module.exports = function serve(cb) {
     gulp.watch('src/img/*.{png,jpg,svg,webp}', gulp.series(imageMinify, readyReload))
     gulp.watch('src/styles/**/*.scss', gulp.series(styles, cb => gulp.src('build/css').pipe(server.stream()).on('end', cb)))
     gulp.watch('src/js/**/*.js', gulp.series(script, readyReload))
-    gulp.watch('src/index.html', gulp.series(html, readyReload))
+    gulp.watch('src/**/*.html', gulp.series(html, readyReload))
 
     return cb()
 }
